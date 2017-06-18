@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">LostAndFound</string>
+    <string name="action_settings">Settings</string>
+    <string name="hint_username">Enter Username</string>
+    <string name="hint_password">Enter Password</string>
+    <string name="btn_login">Login</string>
+    <string name="btn_link_to_register">Are You registered? click to register</string>
+    <string name="btn_link_to_login">Aready registered? click to login</string>
+    <string name="btn_register">Register</string>
+    <string name="hint_re_password">Re-Type Password</string>
+    <string name="hint_email">Enter Email</string>
+    <string name="hint_name">Enter Names</string>
+    <string name="hint_phone">Enter Phonenumber</string>
+    <string name="hint_location">Enter Address</string>
+    <string name="todo">TODO</string>
+    <string-array name="enteries">
+        <item>choose</item>
+        <item>male</item>
+        <item>female</item>
+        <item>others</item>
+    </string-array>
+    <string name="hello_lost_fragment">we are on lost fragment</string>
+    <string name="hello_found_fragment">we are on found fragment</string>
+</resources>
