@@ -23,6 +23,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.regismutangana.lostandfound.Model.User;
 
 public class RegisterActivity extends AppCompatActivity {
 
@@ -173,8 +174,8 @@ public class RegisterActivity extends AppCompatActivity {
 
                             //saving other user infos
                             mFirebaseDbRef = mFirebaseInstance.getReference("users");
-                            Users mUsers = new Users(user.getEmail(),name,username,phone,selected,location);
-                            mFirebaseDbRef.push().setValue(mUsers);
+                            User mUser = new User(user.getEmail(),name,username,phone,selected,location);
+                            mFirebaseDbRef.push().setValue(mUser);
 
                             Toast.makeText(RegisterActivity.this, "User Registered Successfully.",
                                     Toast.LENGTH_SHORT).show();

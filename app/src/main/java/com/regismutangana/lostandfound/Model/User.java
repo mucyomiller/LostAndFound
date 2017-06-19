@@ -1,7 +1,7 @@
-package com.regismutangana.lostandfound;
+package com.regismutangana.lostandfound.Model;
 
 
-public class Users {
+public class User {
     private String email;
     private String names;
     private String username;
@@ -9,10 +9,10 @@ public class Users {
     private String sex;
     private String location;
 
-    public Users() {
+    public User() {
     }
 
-    public Users(String email, String names, String username, String phone, String sex, String location) {
+    public User(String email, String names, String username, String phone, String sex, String location) {
         this.email = email;
         this.names = names;
         this.username = username;

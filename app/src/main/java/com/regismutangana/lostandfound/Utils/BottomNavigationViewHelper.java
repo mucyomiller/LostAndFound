@@ -10,7 +10,6 @@ import android.view.MenuItem;
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
 import com.regismutangana.lostandfound.Found.FoundActivity;
 import com.regismutangana.lostandfound.Home.HomeActivity;
-import com.regismutangana.lostandfound.Lost.LostActivity;
 import com.regismutangana.lostandfound.Profile.ProfileActivity;
 import com.regismutangana.lostandfound.R;
 
@@ -39,17 +38,13 @@ public class BottomNavigationViewHelper {
                         Intent intent1 = new Intent(context, HomeActivity.class);
                         context.startActivity(intent1);
                         break;
-                    case R.id.tab_lost:
-                        Intent intent2 = new Intent(context, LostActivity.class);
+                    case R.id.tab_found:
+                        Intent intent2 = new Intent(context, FoundActivity.class);
                         context.startActivity(intent2);
                         break;
-                    case R.id.tab_found:
-                        Intent intent3 = new Intent(context, FoundActivity.class);
-                        context.startActivity(intent3);
-                        break;
                     case R.id.tab_profile:
-                        Intent intent4 = new Intent(context, ProfileActivity.class);
-                        context.startActivity(intent4);
+                        Intent intent3 = new Intent(context, ProfileActivity.class);
+                        context.startActivity(intent3);
                         break;
                 }
                 return false;

@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="vertical"
+        android:background="@color/primary_dark"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp" >
+        <Spinner
+            android:id="@+id/spinner_report"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:padding="10dp"
+            android:layout_marginBottom="10dp" />
+        <EditText
+            android:id="@+id/automobile_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:background="@color/primary"
+            android:hint="@string/hint_automobile_name"
+            android:padding="8dp"
+            android:singleLine="true"
+            android:inputType="textCapWords"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white" />
+        <EditText
+            android:id="@+id/automobile_model_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:background="@color/primary"
+            android:hint="@string/hint_automobile_model_name"
+            android:inputType="number"
+            android:padding="8dp"
+            android:singleLine="true"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white" />
+        <EditText
+            android:id="@+id/automobile_plate_number"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:background="@color/primary"
+            android:hint="@string/hint_automobile_plate_number"
+            android:inputType="number"
+            android:padding="8dp"
+            android:singleLine="true"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white" />
+
+        <EditText
+            android:id="@+id/found_location"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:background="@color/primary"
+            android:hint="@string/hint_found_location"
+            android:inputType="textCapWords"
+            android:padding="8dp"
+            android:singleLine="true"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white" />
+        <EditText
+            android:id="@+id/lost_location"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:background="@color/primary"
+            android:hint="@string/hint_lost_location"
+            android:inputType="textCapWords"
+            android:padding="8dp"
+            android:singleLine="true"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white" />
+
+        <!-- Login Button -->
+
+        <Button
+            android:id="@+id/btnReportFound"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dip"
+            android:background="@color/primary"
+            android:text="@string/btn_report_found"
+            android:textColor="@color/white" />
+        <Button
+            android:id="@+id/btnReportLost"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:background="@color/primary"
+            android:text="@string/btn_report_lost"
+            android:textColor="@color/white" />
+    </LinearLayout>
+</android.support.v4.widget.NestedScrollView>

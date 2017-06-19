@@ -19,6 +19,30 @@
         <item>female</item>
         <item>others</item>
     </string-array>
+    <string-array name="reports">
+        <item>Lost</item>
+        <item>Found</item>
+    </string-array>
+    <string-array name="device_type">
+        <item>Phone</item>
+        <item>Tablet</item>
+        <item>Laptop</item>
+        <item>Desktop</item>
+        <item>Camera</item>
+        <item>Other</item>
+    </string-array>
     <string name="hello_lost_fragment">we are on lost fragment</string>
     <string name="hello_found_fragment">we are on found fragment</string>
+    <string name="hint_owner_name">Enter Owner\'s Name</string>
+    <string name="hint_id_number">Enter Id Number</string>
+    <string name="hint_found_location">Enter Where You Found it</string>
+    <string name="hint_lost_location">Enter Where You Losted it</string>
+    <string name="btn_report_found">Report Founded Item</string>
+    <string name="btn_report_lost">Report Lost Item</string>
+    <string name="hint_device_name">Enter Device Name</string>
+    <string name="hint_device_model_name">Enter Device Model Name</string>
+    <string name="hint_device_serial_number">Enter Serial Number</string>
+    <string name="hint_automobile_name">Enter Automobile Name</string>
+    <string name="hint_automobile_model_name">Enter Automobile Model Name</string>
+    <string name="hint_automobile_plate_number">Enter Plate Number</string>
 </resources>

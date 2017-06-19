@@ -22,6 +22,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.regismutangana.lostandfound.Home.HomeActivity;
+import com.regismutangana.lostandfound.Model.User;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -98,8 +99,8 @@ public class LoginActivity extends AppCompatActivity {
                 public void onDataChange(DataSnapshot dataSnapshot) {
 
                     for(DataSnapshot adress : dataSnapshot.getChildren()) {
-                        if(adress.getValue(Users.class).getUsername().equals(username)) {
-                            email[0] = adress.getValue(Users.class).getEmail();
+                        if(adress.getValue(User.class).getUsername().equals(username)) {
+                            email[0] = adress.getValue(User.class).getEmail();
                             Log.d("EMAIL_FOUND", email[0]+" password :"+password);
                             mAuth.signInWithEmailAndPassword(email[0], password).addOnCompleteListener(LoginActivity.this, new OnCompleteListener<AuthResult>() {
                                 @Override

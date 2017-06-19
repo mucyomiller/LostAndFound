@@ -20,7 +20,8 @@
             android:layout_gravity="center"
             android:padding="5dp"
             android:layout_height="152dp"
-            android:layout_width="151dp" android:contentDescription="@string/todo" />
+            android:layout_width="151dp"
+            android:contentDescription="@string/todo" />
         <EditText
             android:id="@+id/name"
             android:layout_width="match_parent"

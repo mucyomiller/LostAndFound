@@ -30,7 +30,7 @@ public class HomeActivity extends AppCompatActivity {
     private void setupViewPager(){
         SectionsPagerAdapter adapter = new SectionsPagerAdapter(getSupportFragmentManager());
         adapter.addFragemnt(new FragmentCards());
-        adapter.addFragemnt(new FragmentCars());
+        adapter.addFragemnt(new FragmentAutomobile());
         adapter.addFragemnt(new FragmentGadgets());
         ViewPager viewPager = (ViewPager)findViewById(R.id.container);
         viewPager.setAdapter(adapter);
