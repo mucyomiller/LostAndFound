@@ -14,7 +14,7 @@ import com.regismutangana.lostandfound.Utils.BottomNavigationViewHelper;
 
 public class ProfileActivity extends AppCompatActivity {
     private static final String TAG = "ProfileActivity";
-    private static final int ACTIVITY_NUM = 3;
+    private static final int ACTIVITY_NUM = 2;
     private Context mContext = ProfileActivity.this;
 
     @Override

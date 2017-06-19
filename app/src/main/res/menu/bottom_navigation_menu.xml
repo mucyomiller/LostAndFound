@@ -3,20 +3,14 @@
 
     <item
         android:id="@+id/tab_home"
-        android:icon="@drawable/ic_home"
-        android:title="Home">
-
-    </item>
-    <item
-        android:id="@+id/tab_lost"
         android:icon="@drawable/ic_lost"
-        android:title="Losts">
+        android:title="Report Item">
 
     </item>
     <item
         android:id="@+id/tab_found"
         android:icon="@drawable/ic_found"
-        android:title="Founds">
+        android:title="View Reported">
 
     </item>
     <item
