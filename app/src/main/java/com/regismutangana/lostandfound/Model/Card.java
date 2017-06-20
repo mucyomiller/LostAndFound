@@ -6,17 +6,60 @@ package com.regismutangana.lostandfound.Model;
 
 public class Card {
     private String OwnerName;
-    private String IdNumber;
-    private String Location;
+    private Long IdNumber;
+    private String FoundLocation;
+    private String LostLocation;
+    private String FounderUid;
+    private String OwnerUid;
 
     //needed by firebase
     public Card() {
     }
 
-    public Card(String ownerName, String idNumber, String location) {
+    //constructor for Found item
+    public Card(String ownerName,String foundlocation, String founderUid, long idNumber) {
         OwnerName = ownerName;
         IdNumber = idNumber;
-        Location = location;
+        FoundLocation = foundlocation;
+        FounderUid = founderUid;
+    }
+    //constructor for Lost item
+    public Card( long idNumber,String ownerName, String lostlocation, String ownerUid) {
+        OwnerName = ownerName;
+        IdNumber = idNumber;
+        LostLocation = lostlocation;
+        OwnerUid = ownerUid;
+    }
+    public String getFoundLocation() {
+        return FoundLocation;
+    }
+
+    public void setFoundLocation(String foundLocation) {
+        FoundLocation = foundLocation;
+    }
+
+    public String getLostLocation() {
+        return LostLocation;
+    }
+
+    public void setLostLocation(String lostLocation) {
+        LostLocation = lostLocation;
+    }
+
+    public String getFounderUid() {
+        return FounderUid;
+    }
+
+    public void setFounderUid(String founderUid) {
+        FounderUid = founderUid;
+    }
+
+    public String getOwnerUid() {
+        return OwnerUid;
+    }
+
+    public void setOwnerUid(String ownerUid) {
+        OwnerUid = ownerUid;
     }
 
     public String getOwnerName() {
@@ -27,19 +70,11 @@ public class Card {
         OwnerName = ownerName;
     }
 
-    public String getIdNumber() {
+    public Long getIdNumber() {
         return IdNumber;
     }
 
-    public void setIdNumber(String idNumber) {
+    public void setIdNumber(Long idNumber) {
         IdNumber = idNumber;
-    }
-
-    public String getLocation() {
-        return Location;
-    }
-
-    public void setLocation(String location) {
-        Location = location;
     }
 }

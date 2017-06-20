@@ -62,7 +62,9 @@ public class FragmentGadgets extends Fragment {
                 {
                     selected = (String) parent.getItemAtPosition(position);
                     TextView spinnerText = (TextView)mSpinner.getSelectedView();
-                    spinnerText.setTextColor(Color.WHITE);
+                    if(spinnerText != null){
+                        spinnerText.setTextColor(Color.WHITE);
+                    }
                     //set visibility to VISIBLE on lost item
                     lost_location.setVisibility(View.VISIBLE);
                     btnReportLost.setVisibility(View.VISIBLE);
@@ -75,8 +77,9 @@ public class FragmentGadgets extends Fragment {
                     //setting color to white on selected item
                     selected = (String) parent.getItemAtPosition(position);
                     TextView spinnerText = (TextView)mSpinner.getSelectedView();
-                    spinnerText.setTextColor(Color.WHITE);
-
+                    if(spinnerText !=null){
+                        spinnerText.setTextColor(Color.WHITE);
+                    }
                     //set VIsibility to VISIBLE on found items
                     found_location.setVisibility(View.VISIBLE);
                     btnReportFound.setVisibility(View.VISIBLE);

@@ -45,4 +45,8 @@
     <string name="hint_automobile_name">Enter Automobile Name</string>
     <string name="hint_automobile_model_name">Enter Automobile Model Name</string>
     <string name="hint_automobile_plate_number">Enter Plate Number</string>
+    <string name="err_owner_name">Please enter nwner name</string>
+    <string name="err_id_number">Please enter valid Id number</string>
+    <string name="err_found_location">Please enter valid found location</string>
+    <string name="err_lost_location">Please enter valid lost location</string>
 </resources>
