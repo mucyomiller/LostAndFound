@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.google.firebase.iid.FirebaseInstanceId;
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
 import com.regismutangana.lostandfound.R;
 import com.regismutangana.lostandfound.Utils.BottomNavigationViewHelper;
@@ -22,6 +23,11 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         Log.d(TAG, "onCreate: starting...");
+
+        Log.d(TAG,"Getting fcm Token....");
+        // Get token
+        String token = FirebaseInstanceId.getInstance().getToken();
+        Log.d(TAG, "onCreate: logging fcm token...."+token);
         setupBottomNavigationView();
         setupViewPager();
     }

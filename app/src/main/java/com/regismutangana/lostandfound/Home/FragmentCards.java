@@ -19,6 +19,7 @@ import com.basgeekball.awesomevalidation.AwesomeValidation;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.iid.FirebaseInstanceId;
 import com.regismutangana.lostandfound.Model.Card;
 import com.regismutangana.lostandfound.R;
 
@@ -148,6 +149,11 @@ public class FragmentCards extends Fragment {
                 Card mCard = new Card(owner_name.getText().toString(),found_location.getText().toString(),mAuth.getCurrentUser().getUid(),Long.parseLong(id_number.getText().toString()));
                 mFirebaseDbRef.push().setValue(mCard);
                 Log.d(TAG, "onClick: founded item reported successful");
+
+                Log.d(TAG,"Getting fcm Token....");
+                // Get token
+                String token = FirebaseInstanceId.getInstance().getToken();
+                Log.d(TAG, "onCreate: logging fcm token...."+token);
 
 
             }
