@@ -150,10 +150,10 @@ public class FragmentCards extends Fragment {
                 mFirebaseDbRef.push().setValue(mCard);
                 Log.d(TAG, "onClick: founded item reported successful");
 
-                Log.d(TAG,"Getting fcm Token....");
-                // Get token
-                String token = FirebaseInstanceId.getInstance().getToken();
-                Log.d(TAG, "onCreate: logging fcm token...."+token);
+//                Log.d(TAG,"Getting fcm Token....");
+//                // Get token
+//                String token = FirebaseInstanceId.getInstance().getToken();
+//                Log.d(TAG, "onCreate: logging fcm token...."+token);
 
 
             }

@@ -36,14 +36,17 @@ public class BottomNavigationViewHelper {
                 switch (item.getItemId()){
                     case R.id.tab_home:
                         Intent intent1 = new Intent(context, HomeActivity.class);
+                        intent1.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
                         context.startActivity(intent1);
                         break;
                     case R.id.tab_found:
                         Intent intent2 = new Intent(context, FoundActivity.class);
+                        intent2.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
                         context.startActivity(intent2);
                         break;
                     case R.id.tab_profile:
                         Intent intent3 = new Intent(context, ProfileActivity.class);
+                        intent3.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
                         context.startActivity(intent3);
                         break;
                 }

@@ -9,6 +9,9 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.iid.FirebaseInstanceId;
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
 import com.regismutangana.lostandfound.R;
@@ -18,6 +21,10 @@ public class HomeActivity extends AppCompatActivity {
     private static final String TAG = "HomeActivity";
     private static final int ACTIVITY_NUM = 0;
     private Context mContext =HomeActivity.this;
+    //declare_auth
+    private FirebaseAuth mAuth;
+    private DatabaseReference mFirebaseDbRef;
+    private FirebaseDatabase mFirebaseInstance;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,7 +34,13 @@ public class HomeActivity extends AppCompatActivity {
         Log.d(TAG,"Getting fcm Token....");
         // Get token
         String token = FirebaseInstanceId.getInstance().getToken();
-        Log.d(TAG, "onCreate: logging fcm token...."+token);
+        Log.d(TAG, "onCreate: logging&updating server about fcm token...."+token);
+        //initialize_auth
+        mAuth = FirebaseAuth.getInstance();
+        //initialize firebase
+        mFirebaseInstance = FirebaseDatabase.getInstance();
+        mFirebaseDbRef = mFirebaseInstance.getReference("tokens").child(mAuth.getCurrentUser().getUid()).child("token");
+        mFirebaseDbRef.setValue(token);
         setupBottomNavigationView();
         setupViewPager();
     }

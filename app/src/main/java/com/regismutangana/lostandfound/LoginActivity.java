@@ -111,6 +111,7 @@ public class LoginActivity extends AppCompatActivity {
                                 hideProgressDialog();
                                 FirebaseUser user = mAuth.getCurrentUser();
                                 Intent i = new Intent(getApplicationContext(),HomeActivity.class);
+                                i.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
                                 startActivity(i);
                                 finish();
                                 //updateUI(user);

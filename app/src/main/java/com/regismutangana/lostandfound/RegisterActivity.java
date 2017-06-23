@@ -181,6 +181,7 @@ public class RegisterActivity extends AppCompatActivity {
                                     Toast.LENGTH_SHORT).show();
                             Intent i = new Intent(getApplicationContext(),
                                     LoginActivity.class);
+                            i.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
                             startActivity(i);
                             finish();
 
