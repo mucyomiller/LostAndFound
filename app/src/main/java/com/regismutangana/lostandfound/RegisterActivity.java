@@ -175,7 +175,7 @@ public class RegisterActivity extends AppCompatActivity {
                             //saving other user infos
                             mFirebaseDbRef = mFirebaseInstance.getReference("users");
                             User mUser = new User(user.getEmail(),name,username,phone,selected,location);
-                            mFirebaseDbRef.push().setValue(mUser);
+                            mFirebaseDbRef.child(user.getUid()).setValue(mUser);
 
                             Toast.makeText(RegisterActivity.this, "User Registered Successfully.",
                                     Toast.LENGTH_SHORT).show();
