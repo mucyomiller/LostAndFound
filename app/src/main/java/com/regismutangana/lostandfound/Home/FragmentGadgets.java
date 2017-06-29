@@ -26,7 +26,7 @@ public class FragmentGadgets extends Fragment {
     private static final String TAG = "FragmentGadgets";
     private Spinner  mSpinner;
     private EditText device_name;
-    private Spinner spinner_device_type;
+//    private Spinner spinner_device_type;
     private EditText device_model_name;
     private EditText device_serial_number;
     private EditText found_location;
@@ -43,7 +43,7 @@ public class FragmentGadgets extends Fragment {
         View view = inflater.inflate(R.layout.fragment_gadgets,container,false);
         mSpinner = (Spinner) view.findViewById(R.id.spinner_report);
         device_name = (EditText) view.findViewById(R.id.device_name);
-        spinner_device_type= (Spinner) view.findViewById(R.id.spinner_device_type);
+//        spinner_device_type= (Spinner) view.findViewById(R.id.spinner_device_type);
         device_model_name= (EditText) view.findViewById(R.id.device_model_name);
         device_serial_number= (EditText) view.findViewById(R.id.device_serial_number);
         found_location = (EditText) view.findViewById(R.id.found_location);
@@ -97,18 +97,18 @@ public class FragmentGadgets extends Fragment {
         });
         mDeviceSpinneradapter = ArrayAdapter.createFromResource(getContext(),R.array.device_type,R.layout.support_simple_spinner_dropdown_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner_device_type.setAdapter(adapter);
-        spinner_device_type.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                mDeviceType = (String) parent.getItemAtPosition(position);
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
+        //spinner_device_type.setAdapter(adapter);
+//        spinner_device_type.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+//            @Override
+//            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+//                mDeviceType = (String) parent.getItemAtPosition(position);
+//            }
+//
+//            @Override
+//            public void onNothingSelected(AdapterView<?> parent) {
+//
+//            }
+//        });
 
 
         /**
