@@ -68,6 +68,8 @@ public class LoginActivity extends AppCompatActivity {
                         // login user
                         checkLogin(username, password);
                     } else {
+//                        Intent mIntent = new Intent(getApplicationContext(),HomeActivity.class);
+//                        startActivity(mIntent);
                         // Prompt user to enter credentials
                         Toast.makeText(getApplicationContext(),
                                 "Please enter the credentials!", Toast.LENGTH_LONG)

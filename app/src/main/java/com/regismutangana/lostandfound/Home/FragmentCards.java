@@ -1,5 +1,6 @@
 package com.regismutangana.lostandfound.Home;
 
+import android.app.ProgressDialog;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -47,6 +48,7 @@ public class FragmentCards extends Fragment {
     private FirebaseAuth mAuth;
     private DatabaseReference mFirebaseDbRef;
     private FirebaseDatabase mFirebaseInstance;
+    private ProgressDialog pDialog;
 
 
     @Nullable
@@ -57,6 +59,10 @@ public class FragmentCards extends Fragment {
         mAuth = FirebaseAuth.getInstance();
         //initialize firebase
         mFirebaseInstance = FirebaseDatabase.getInstance();
+        //init progress dialog
+        // Progress dialog
+        pDialog = new ProgressDialog(getContext());
+        pDialog.setCancelable(false);
 
         //initialise form validator
         final AwesomeValidation mAwesomeValidation = new AwesomeValidation(UNDERLABEL);
@@ -117,6 +123,7 @@ public class FragmentCards extends Fragment {
         btnReportLost.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                showProgressDialog("Reporting lost item...");
                 mAwesomeValidation.clear();
                 Log.d(TAG, "onCreateView: start reporting lost item....");
                 mFirebaseDbRef = mFirebaseInstance.getReference("cards").child("lost");
@@ -131,6 +138,7 @@ public class FragmentCards extends Fragment {
                 Card mCard = new Card(Long.parseLong(id_number.getText().toString()),owner_name.getText().toString(),lost_location.getText().toString(),mAuth.getCurrentUser().getUid());
                 mFirebaseDbRef.push().setValue(mCard);
                 Log.d(TAG, "onClick: lost item reported successful");
+                hideProgressDialog();
 
             }
         });
@@ -138,6 +146,7 @@ public class FragmentCards extends Fragment {
         btnReportFound.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                showProgressDialog("Reporting found item...");
                 mAwesomeValidation.clear();
                 Log.d(TAG, "onClick: start reporting founded item.....");
                 mFirebaseDbRef = mFirebaseInstance.getReference("cards").child("found");
@@ -151,6 +160,7 @@ public class FragmentCards extends Fragment {
                 Card mCard = new Card(owner_name.getText().toString(),found_location.getText().toString(),mAuth.getCurrentUser().getUid(),Long.parseLong(id_number.getText().toString()));
                 mFirebaseDbRef.push().setValue(mCard);
                 Log.d(TAG, "onClick: founded item reported successful");
+                hideProgressDialog();
 
 //                Log.d(TAG,"Getting fcm Token....");
 //                // Get token
@@ -162,4 +172,13 @@ public class FragmentCards extends Fragment {
         });
         return view;
     }
+    public void showProgressDialog(String message){
+        if (!pDialog.isShowing())
+            pDialog.setMessage(message);
+        pDialog.show();
+    };
+    public void hideProgressDialog(){
+        if (pDialog.isShowing())
+            pDialog.dismiss();
+    };
 }

@@ -49,4 +49,10 @@
     <string name="err_id_number">Please enter valid Id number</string>
     <string name="err_found_location">Please enter valid found location</string>
     <string name="err_lost_location">Please enter valid lost location</string>
+    <string name="err_device_name">Please enter device name</string>
+    <string name="err_device_model_name">Please enter device model name</string>
+    <string name="err_device_serial_number">Please enter device serial number</string>
+    <string name="err_automobile_name">Please enter automobile name</string>
+    <string name="err_automobile_model_name">Please enter automobile model name</string>
+    <string name="err_automobile_plate_number">Please enter automobile plate number</string>
 </resources>
