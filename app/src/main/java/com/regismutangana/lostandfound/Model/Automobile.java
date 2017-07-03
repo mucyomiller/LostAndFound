@@ -8,16 +8,23 @@ public class Automobile {
     private String Name;
     private String ModelName;
     private String PlateNumber;
-    private String Location;
+    private String FoundLocation;
+    private String LostLocation;
+    private String FounderUid;
+    private String OwnerUid;
 
     public Automobile() {
     }
 
-    public Automobile(String name, String modelName, String plateNumber, String location) {
+
+    public Automobile(String name, String modelName, String plateNumber, String foundLocation, String lostLocation, String founderUid, String ownerUid) {
         Name = name;
         ModelName = modelName;
         PlateNumber = plateNumber;
-        Location = location;
+        FoundLocation = foundLocation;
+        LostLocation = lostLocation;
+        FounderUid = founderUid;
+        OwnerUid = ownerUid;
     }
 
     public String getName() {
@@ -44,11 +51,35 @@ public class Automobile {
         PlateNumber = plateNumber;
     }
 
-    public String getLocation() {
-        return Location;
+    public String getFoundLocation() {
+        return FoundLocation;
     }
 
-    public void setLocation(String location) {
-        Location = location;
+    public void setFoundLocation(String foundLocation) {
+        FoundLocation = foundLocation;
+    }
+
+    public String getLostLocation() {
+        return LostLocation;
+    }
+
+    public void setLostLocation(String lostLocation) {
+        LostLocation = lostLocation;
+    }
+
+    public String getFounderUid() {
+        return FounderUid;
+    }
+
+    public void setFounderUid(String founderUid) {
+        FounderUid = founderUid;
+    }
+
+    public String getOwnerUid() {
+        return OwnerUid;
+    }
+
+    public void setOwnerUid(String ownerUid) {
+        OwnerUid = ownerUid;
     }
 }

@@ -9,17 +9,23 @@ public class Gadget {
     private String Type;
     private String ModelName;
     private String SerialNumber;
-    private String Location;
+    private String FoundLocation;
+    private String LostLocation;
+    private String FounderUid;
+    private String OwnerUid;
 
     public Gadget() {
     }
 
-    public Gadget(String name, String type, String modelName, String serialNumber, String location) {
+    public Gadget(String name, String type, String modelName, String serialNumber, String foundLocation, String lostLocation, String founderUid, String ownerUid) {
         Name = name;
         Type = type;
         ModelName = modelName;
         SerialNumber = serialNumber;
-        Location = location;
+        FoundLocation = foundLocation;
+        LostLocation = lostLocation;
+        FounderUid = founderUid;
+        OwnerUid = ownerUid;
     }
 
     public String getName() {
@@ -54,11 +60,35 @@ public class Gadget {
         SerialNumber = serialNumber;
     }
 
-    public String getLocation() {
-        return Location;
+    public String getFoundLocation() {
+        return FoundLocation;
     }
 
-    public void setLocation(String location) {
-        Location = location;
+    public void setFoundLocation(String foundLocation) {
+        FoundLocation = foundLocation;
+    }
+
+    public String getLostLocation() {
+        return LostLocation;
+    }
+
+    public void setLostLocation(String lostLocation) {
+        LostLocation = lostLocation;
+    }
+
+    public String getFounderUid() {
+        return FounderUid;
+    }
+
+    public void setFounderUid(String founderUid) {
+        FounderUid = founderUid;
+    }
+
+    public String getOwnerUid() {
+        return OwnerUid;
+    }
+
+    public void setOwnerUid(String ownerUid) {
+        OwnerUid = ownerUid;
     }
 }

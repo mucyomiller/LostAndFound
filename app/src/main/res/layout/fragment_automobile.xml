@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v4.widget.NestedScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <LinearLayout
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_gravity="center"
         android:orientation="vertical"
         android:background="@color/primary_dark"
@@ -37,23 +34,25 @@
             android:layout_marginBottom="10dp"
             android:background="@color/primary"
             android:hint="@string/hint_automobile_model_name"
-            android:inputType="number"
+            android:inputType="textCapWords"
             android:padding="8dp"
             android:singleLine="true"
             android:textColor="@color/white"
             android:textColorHint="@color/white" />
-        <EditText
-            android:id="@+id/automobile_plate_number"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:background="@color/primary"
-            android:hint="@string/hint_automobile_plate_number"
-            android:inputType="number"
-            android:padding="8dp"
-            android:singleLine="true"
-            android:textColor="@color/white"
-            android:textColorHint="@color/white" />
+
+    <EditText
+        android:id="@+id/automobile_plate_number"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:background="@color/primary"
+        android:hint="@string/hint_automobile_plate_number"
+        android:inputType="textCapWords"
+        android:padding="8dp"
+        android:singleLine="true"
+        android:textAllCaps="true"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white" />
 
         <EditText
             android:id="@+id/found_location"
@@ -98,5 +97,4 @@
             android:background="@color/primary"
             android:text="@string/btn_report_lost"
             android:textColor="@color/white" />
-    </LinearLayout>
-</android.support.v4.widget.NestedScrollView>
+</LinearLayout>
