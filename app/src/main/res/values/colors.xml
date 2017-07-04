@@ -1,5 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!--temporary-->
+    <!--<color name="primary">#F44336</color>-->
+    <!--<color name="primary_dark">#D32F2F</color>-->
+    <!--<color name="primary_light">#FFCDD2</color>-->
+    <!--<color name="accent">#FFC107</color>-->
+    <!--<color name="bg_login">#D32F2F</color>-->
+    <!--<color name="btn_logut_bg">#ff6861</color>-->
+
+    <!--end of temp colors-->
     <color name="primary">#03A9F4</color>
     <color name="primary_dark">#0288D1</color>
     <color name="primary_light">#B3E5FC</color>
