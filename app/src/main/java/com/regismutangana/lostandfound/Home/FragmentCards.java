@@ -135,7 +135,11 @@ public class FragmentCards extends Fragment {
                 //activate trigger for validating
                 mAwesomeValidation.validate();
                 //Card Model
-                Card mCard = new Card(Long.parseLong(id_number.getText().toString()),owner_name.getText().toString(),lost_location.getText().toString(),mAuth.getCurrentUser().getUid());
+                Card mCard = new Card();
+                mCard.setIdNumber(id_number.getText().toString());
+                mCard.setOwnerName(owner_name.getText().toString());
+                mCard.setLostLocation(lost_location.getText().toString());
+                mCard.setOwnerUid(mAuth.getCurrentUser().getUid());
                 mFirebaseDbRef.push().setValue(mCard);
                 Log.d(TAG, "onClick: lost item reported successful");
                 hideProgressDialog();
@@ -157,7 +161,11 @@ public class FragmentCards extends Fragment {
                 //activate trigger for validating
                 mAwesomeValidation.validate();
                 //Card Model
-                Card mCard = new Card(owner_name.getText().toString(),found_location.getText().toString(),mAuth.getCurrentUser().getUid(),Long.parseLong(id_number.getText().toString()));
+                Card mCard = new Card();
+                mCard.setOwnerName(owner_name.getText().toString());
+                mCard.setFoundLocation(found_location.getText().toString());
+                mCard.setFounderUid(mAuth.getCurrentUser().getUid());
+                mCard.setIdNumber(id_number.getText().toString());
                 mFirebaseDbRef.push().setValue(mCard);
                 Log.d(TAG, "onClick: founded item reported successful");
                 hideProgressDialog();

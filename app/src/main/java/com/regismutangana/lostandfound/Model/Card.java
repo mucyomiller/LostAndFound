@@ -6,7 +6,7 @@ package com.regismutangana.lostandfound.Model;
 
 public class Card {
     private String OwnerName;
-    private Long IdNumber;
+    private String IdNumber;
     private String FoundLocation;
     private String LostLocation;
     private String FounderUid;
@@ -16,20 +16,7 @@ public class Card {
     public Card() {
     }
 
-    //constructor for Found item
-    public Card(String ownerName,String foundlocation, String founderUid, long idNumber) {
-        OwnerName = ownerName;
-        IdNumber = idNumber;
-        FoundLocation = foundlocation;
-        FounderUid = founderUid;
-    }
-    //constructor for Lost item
-    public Card( long idNumber,String ownerName, String lostlocation, String ownerUid) {
-        OwnerName = ownerName;
-        IdNumber = idNumber;
-        LostLocation = lostlocation;
-        OwnerUid = ownerUid;
-    }
+
     public String getFoundLocation() {
         return FoundLocation;
     }
@@ -70,11 +57,7 @@ public class Card {
         OwnerName = ownerName;
     }
 
-    public Long getIdNumber() {
-        return IdNumber;
-    }
+    public String getIdNumber() { return IdNumber;}
 
-    public void setIdNumber(Long idNumber) {
-        IdNumber = idNumber;
-    }
+    public void setIdNumber(String idNumber) { IdNumber = idNumber;}
 }
