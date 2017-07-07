@@ -5,7 +5,7 @@
     <string name="hint_password">Enter Password</string>
     <string name="btn_login">Login</string>
     <string name="btn_link_to_register">Are You registered? click to register</string>
-    <string name="btn_link_to_login">Aready registered? click to login</string>
+    <string name="btn_link_to_login">Already registered? click to login</string>
     <string name="btn_register">Register</string>
     <string name="hint_re_password">Re-Type Password</string>
     <string name="hint_email">Enter Email</string>
@@ -13,6 +13,7 @@
     <string name="hint_phone">Enter Phonenumber</string>
     <string name="hint_location">Enter Address</string>
     <string name="todo">TODO</string>
+    <string name="logging_in_message">Logging in...</string>
     <string-array name="enteries">
         <item>choose</item>
         <item>male</item>
@@ -45,7 +46,7 @@
     <string name="hint_automobile_name">Enter Automobile Name</string>
     <string name="hint_automobile_model_name">Enter Automobile Model Name</string>
     <string name="hint_automobile_plate_number">Enter Plate Number</string>
-    <string name="err_owner_name">Please enter nwner name</string>
+    <string name="err_owner_name">Please enter owner name</string>
     <string name="err_id_number">Please enter valid Id number</string>
     <string name="err_found_location">Please enter valid found location</string>
     <string name="err_lost_location">Please enter valid lost location</string>
@@ -55,4 +56,75 @@
     <string name="err_automobile_name">Please enter automobile name</string>
     <string name="err_automobile_model_name">Please enter automobile model name</string>
     <string name="err_automobile_plate_number">Please enter automobile plate number</string>
+    <string name="logout">Logout</string>
+    <string name="names">Names</string>
+    <string name="idnumber">Id Number</string>
+    <string name="location">Location</string>
+    <string name="automobile_name">Automobile Name :</string>
+    <string name="lost_location">Lost Location:</string>
+    <string name="automobile_model_name">Model Name:</string>
+    <string name="automobile_plate_number">Plate Number:</string>
+    <string name="device_name">Device Name:</string>
+    <string name="device_type">Device Type:</string>
+    <string name="device_model_name">Device Model Name:</string>
+    <string name="device_serial_number">Device SerialNumber:</string>
+    <string name="title_activity_settings">Settings</string>
+
+    <!--languages-->
+    <string name="chooselang">Choose Language</string>
+    <string name="language">Language</string>
+    <string-array
+        name="Languages">
+        <item>Kinyarwanda</item>
+        <item>English</item>
+        <item>French</item>
+    </string-array>
+    <string-array
+        name="LanguagesValues">
+        <item>rw</item>
+        <item>en</item>
+        <item>fr</item>
+    </string-array>
+    <!--end of languages-->
+
+    <!--string related to settings-->
+    <string name="preferences_category_one">Languages</string>
+
+    <string name="preferences_switch_title">Kinyarwanda</string>
+    <string name="preferences_switch_summ">Toggle to enable kinyarwanda</string>
+    <string name="preferences_switch_en_title">English</string>
+    <string name="preferences_switch_en_summ">Toggle to enable English</string>
+    <string name="preferences_switch_fr_title">French</string>
+    <string name="preferences_switch_fr_summ">Toggle to enable French</string>
+
+    <string name="preferences_edittext_title">EditText Preference</string>
+    <string name="preferences_edittext_summ" translatable="false">EditText Summary</string>
+    <string name="preferences_edittext_default">Default value</string>
+    <string name="preferences_edittext_message">Dialog Message</string>
+
+    <string name="preferences_checkbox_title">CheckBox Preference</string>
+    <string name="preferences_checkbox_summ">CheckBox Summary</string>
+    <string name="names_">Names:</string>
+    <string name="e_mail">E-mail:</string>
+    <string name="phone">Phone:</string>
+    <string name="address">Address:</string>
+    <string name="lost_something">#Lost Something?</string>
+    <string name="found_something">#Found Something?</string>
+    <string name="creadential_required">Please enter the credentials!</string>
+    <string name="password_match">Password must match re-typed password</string>
+    <string name="select_item">select an item</string>
+    <string name="enter_your_details">Please enter your details!</string>
+    <string name="create_new_account">Creating a new account...</string>
+    <string name="user_register_success_message">User Registered Successfully.</string>
+    <string name="user_register_fail_message">User Registration failed.</string>
+    <string name="report_lost_automobile">Reporting automobile lost...</string>
+    <string name="report_found_automobile">Reporting automobile found...</string>
+    <string name="report_lost_item">Reporting lost item...</string>
+    <string name="report_found_item">Reporting found item...</string>
+    <string name="auth_failed">Authentication failed.</string>
+    <string name="change_profile">change profile</string>
+    <string name="profile">Profile</string>
+    <string name="report_lost">Report lost</string>
+    <string name="view_losted">View Losted</string>
+    <string name="profile_update_message">profile Updated successful</string>
 </resources>

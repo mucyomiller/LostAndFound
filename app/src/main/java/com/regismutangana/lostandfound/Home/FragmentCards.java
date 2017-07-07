@@ -123,7 +123,7 @@ public class FragmentCards extends Fragment {
         btnReportLost.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showProgressDialog("Reporting lost item...");
+                showProgressDialog(getString(R.string.report_lost_item));
                 mAwesomeValidation.clear();
                 Log.d(TAG, "onCreateView: start reporting lost item....");
                 mFirebaseDbRef = mFirebaseInstance.getReference("cards").child("lost");
@@ -150,7 +150,7 @@ public class FragmentCards extends Fragment {
         btnReportFound.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showProgressDialog("Reporting found item...");
+                showProgressDialog(getString(R.string.report_found_item));
                 mAwesomeValidation.clear();
                 Log.d(TAG, "onClick: start reporting founded item.....");
                 mFirebaseDbRef = mFirebaseInstance.getReference("cards").child("found");

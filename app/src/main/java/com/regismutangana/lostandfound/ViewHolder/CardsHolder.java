@@ -11,18 +11,13 @@ import com.regismutangana.lostandfound.R;
  */
 
 public class CardsHolder extends RecyclerView.ViewHolder {
-    private final TextView card_idnumber;
     private final TextView card_owner;
     private final TextView card_location;
 
     public CardsHolder(View itemView) {
         super(itemView);
-        card_idnumber = (TextView) itemView.findViewById(R.id.card_idnumber);
         card_owner = (TextView) itemView.findViewById(R.id.card_owner);
         card_location = (TextView) itemView.findViewById(R.id.card_location);
-    }
-    public void setIdnumber(String name) {
-        card_idnumber.setText(name);
     }
 
     public void setOwner(String message) {

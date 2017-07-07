@@ -112,11 +112,11 @@ public class RegisterActivity extends AppCompatActivity {
         btnRegister.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 if(!inputRePassword.getText().toString().equals(inputPassword.getText().toString())){
-                    inputPassword.setError("Password must match re-typed password");
+                    inputPassword.setError(getString(R.string.password_match));
                 }
                 if(selected.isEmpty())
                 {
-                    ((TextView)spinner.getSelectedView()).setError("select an item");
+                    ((TextView)spinner.getSelectedView()).setError(getString(R.string.select_item));
                 }
 
                 String name = inputFullName.getText().toString().trim();
@@ -130,7 +130,7 @@ public class RegisterActivity extends AppCompatActivity {
                     registerUser(email,name, username,phone , selected, location,password);
                 } else {
                     Toast.makeText(getApplicationContext(),
-                            "Please enter your details!", Toast.LENGTH_LONG)
+                            R.string.enter_your_details, Toast.LENGTH_LONG)
                             .show();
                 }
             }
@@ -160,7 +160,7 @@ public class RegisterActivity extends AppCompatActivity {
 
         Log.d(TAG, "createAccount:" + email);
 
-        showProgressDialog("Creating a new account...");
+        showProgressDialog(getString(R.string.create_new_account));
 
         // [START create_user_with_email]
         mAuth.createUserWithEmailAndPassword(email, password)
@@ -177,7 +177,7 @@ public class RegisterActivity extends AppCompatActivity {
                             User mUser = new User(user.getEmail(),name,username,phone,selected,location);
                             mFirebaseDbRef.child(user.getUid()).setValue(mUser);
 
-                            Toast.makeText(RegisterActivity.this, "User Registered Successfully.",
+                            Toast.makeText(RegisterActivity.this, R.string.user_register_success_message,
                                     Toast.LENGTH_SHORT).show();
                             Intent i = new Intent(getApplicationContext(),
                                     LoginActivity.class);
@@ -188,7 +188,7 @@ public class RegisterActivity extends AppCompatActivity {
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w(TAG, "createUserWithEmail:failure", task.getException());
-                            Toast.makeText(RegisterActivity.this, "Authentication failed.",
+                            Toast.makeText(RegisterActivity.this, R.string.user_register_fail_message,
                                     Toast.LENGTH_SHORT).show();
                         }
                         //

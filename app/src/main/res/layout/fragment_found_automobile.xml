@@ -5,10 +5,11 @@
         android:layout_height="match_parent"
         android:layout_gravity="center"
         android:background="@color/primary_dark"
-        android:paddingLeft="20dp"
-        android:paddingRight="20dp" >
+        android:paddingLeft="2dp"
+        android:paddingRight="2dp" >
  <android.support.v7.widget.RecyclerView
      android:id="@+id/foundautomobilerec"
      android:layout_width="match_parent"
-     android:layout_height="match_parent"></android.support.v7.widget.RecyclerView>
+     android:layout_height="match_parent">
+ </android.support.v7.widget.RecyclerView>
 </FrameLayout>

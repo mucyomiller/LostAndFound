@@ -41,11 +41,11 @@ public class LoginActivity extends AppCompatActivity {
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_login);
+
             //initialize_auth
             mAuth = FirebaseAuth.getInstance();
             //initialize firebase
             mFirebaseInstance = FirebaseDatabase.getInstance();
-
 
             inputUsername = (EditText) findViewById(R.id.username);
             inputPassword = (EditText) findViewById(R.id.password);
@@ -68,11 +68,11 @@ public class LoginActivity extends AppCompatActivity {
                         // login user
                         checkLogin(username, password);
                     } else {
-//                        Intent mIntent = new Intent(getApplicationContext(),HomeActivity.class);
-//                        startActivity(mIntent);
-                        // Prompt user to enter credentials
+                        Intent mIntent = new Intent(getApplicationContext(),SettingsActivity.class);
+                        startActivity(mIntent);
+//                         Prompt user to enter credentials
                         Toast.makeText(getApplicationContext(),
-                                "Please enter the credentials!", Toast.LENGTH_LONG)
+                                R.string.creadential_required, Toast.LENGTH_LONG)
                                 .show();
                     }
                 }
@@ -91,7 +91,7 @@ public class LoginActivity extends AppCompatActivity {
         }
 
         public void checkLogin(final String username, final String password){
-            showProgressDialog("Logging in...");
+            showProgressDialog(getResources().getString(R.string.logging_in_message));
             Log.w(TAG, "Username is "+username+" Password is "+password);
             //getting ref
             mFirebaseDbRef = mFirebaseInstance.getReference();
@@ -121,7 +121,7 @@ public class LoginActivity extends AppCompatActivity {
                                 hideProgressDialog();
                                 // If sign in fails, display a message to the user.
                                 Log.w(TAG, "signInWithEmail:failure", task.getException());
-                                Toast.makeText(LoginActivity.this, "Authentication failed.",
+                                Toast.makeText(LoginActivity.this, R.string.auth_failed ,
                                         Toast.LENGTH_SHORT).show();
                             }
                                 }

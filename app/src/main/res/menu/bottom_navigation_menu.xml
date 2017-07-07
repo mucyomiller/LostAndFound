@@ -4,19 +4,19 @@
     <item
         android:id="@+id/tab_home"
         android:icon="@drawable/ic_lost"
-        android:title="Report Item">
+        android:title="@string/report_lost">
 
     </item>
     <item
         android:id="@+id/tab_found"
         android:icon="@drawable/ic_found"
-        android:title="View Reported">
+        android:title="@string/view_losted">
 
     </item>
     <item
         android:id="@+id/tab_profile"
         android:icon="@drawable/ic_profile"
-        android:title="Profile">
+        android:title="@string/profile">
 
     </item>
 </menu>

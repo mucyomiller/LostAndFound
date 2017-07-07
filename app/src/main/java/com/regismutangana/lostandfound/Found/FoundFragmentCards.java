@@ -48,7 +48,6 @@ public class FoundFragmentCards extends Fragment {
                 mFirebaseDbRef) {
             @Override
             public void populateViewHolder(CardsHolder holder, Card card, int position) {
-                holder.setIdnumber(card.getIdNumber());
                 holder.setOwner(card.getOwnerName());
                 holder.setLocation(card.getLostLocation());
             }

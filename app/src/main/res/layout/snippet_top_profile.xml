@@ -11,7 +11,7 @@
         android:layout_marginLeft="8dp"
         android:orientation="vertical">
         <de.hdodenhof.circleimageview.CircleImageView
-            android:src="@drawable/ic_profile"
+            android:src="@drawable/avatar_default"
             android:layout_marginTop="5dp"
             android:layout_height="100dp"
             android:layout_width="100dp"
@@ -22,55 +22,51 @@
             android:id="@+id/labelName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Names:"
+            android:text="@string/names_"
             android:textAppearance="@style/TextAppearance.AppCompat.Headline" />
 
         <TextView
             android:id="@+id/names"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Mutangana"
             android:textStyle="bold"/>
 
         <TextView
             android:id="@+id/labelEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="E-mail:"
+            android:text="@string/e_mail"
             android:textAppearance="@style/TextAppearance.AppCompat.Headline"/>
 
         <TextView
             android:id="@+id/email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="mutanganaregis@gmail.com"
             android:textStyle="bold"/>
         <TextView
             android:id="@+id/labelPhone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Phone:"
+            android:text="@string/phone"
             android:textAppearance="@style/TextAppearance.AppCompat.Headline"/>
 
         <TextView
             android:id="@+id/phone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="0722505706"
             android:textStyle="bold"/>
 
         <TextView
             android:id="@+id/labelAddress"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Address:"
+            android:text="@string/address"
             android:textAppearance="@style/TextAppearance.AppCompat.Headline"/>
 
         <TextView
             android:id="@+id/address"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Kicukiro"
             android:textStyle="bold"/>
     </LinearLayout>
 </merge>

@@ -1,43 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
-    <!-- A CardView that contains a TextView -->
-<android:android.support.v7.widget.CardView
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/card_view"
-    android:layout_gravity="top"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:longClickable="true"
-    android:orientation="vertical"
-    card_view:cardUseCompatPadding="true"
-    card_view:cardCornerRadius="4dp"
-    card_view:cardElevation="4dp"
-    card_view:contentPadding="10dp"
-    layout_width="match_parent"
-    layout_height="wrap_content">
-<TextView
-    android:id="@+id/card_idnumber"
-    android:layout_width="fill_parent"
-    android:layout_height="wrap_content"
-    android:textColor="#FF4444"
-    android:textSize="24sp"
-    android:text="1199480070850176"
-    />
-<TextView
-    android:id="@+id/card_owner"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_below="@+id/card_idnumber"
-    android:text="Mutangana Regis"
-    />
-<TextView
-    android:id="@+id/card_location"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_below="@+id/card_owner"
-    android:textColor="#33B5E5"
-    android:gravity="end"
-    android:text="Kicukiro"
-    />
-
-</android:android.support.v7.widget.CardView>
+    android:layout_margin="2dp"
+    card_view:cardCornerRadius="5dp"
+    card_view:cardElevation="5dp"
+    android:layout_height="150dp">
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ImageView
+            android:id="@+id/card_img"
+            android:src="@drawable/card_img"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"/>
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_marginLeft="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <TextView
+                android:text="@string/names"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textStyle="bold"
+                android:textColor="@color/accent"
+                android:layout_alignParentLeft="true"/>
+            <TextView
+                android:id="@+id/card_owner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:lines="1"
+                android:layout_alignParentLeft="true"
+                />
+            <TextView
+                android:text="@string/location"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textStyle="bold"
+                android:textColor="@color/accent"
+                android:layout_alignParentLeft="true"/>
+            <TextView
+                android:id="@+id/card_location"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:lines="1"
+                android:layout_alignParentLeft="true"
+                />
+        </LinearLayout>
+    </LinearLayout>
+</android.support.v7.widget.CardView>

@@ -124,7 +124,7 @@ public class FragmentAutomobile extends Fragment {
         btnReportLost.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showProgressDialog("Reporting automobile lost...");
+                showProgressDialog(getString(R.string.report_lost_automobile));
                 Log.d(TAG, "onClick: start reporting automobile lost.....");
                 mFirebaseDbRef = mFirebaseInstance.getReference("automobile").child("lost");
                 //checking if user has entered all necessary data
@@ -151,7 +151,7 @@ public class FragmentAutomobile extends Fragment {
         btnReportFound.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showProgressDialog("Reporting automobile found...");
+                showProgressDialog(getString(R.string.report_found_automobile));
                 Log.d(TAG, "onClick: start reporting found item.....");
                 mFirebaseDbRef = mFirebaseInstance.getReference("automobile").child("found");
                 boolean valid = mAwesomeValidation.validate();
