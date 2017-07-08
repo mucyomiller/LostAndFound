@@ -127,4 +127,5 @@
     <string name="report_lost">Report lost</string>
     <string name="view_losted">View Losted</string>
     <string name="profile_update_message">profile Updated successful</string>
+    <string name="validation_failed">validation failed</string>
 </resources>

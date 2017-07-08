@@ -15,8 +15,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.basgeekball.awesomevalidation.AwesomeValidation;
+import com.basgeekball.awesomevalidation.ValidationStyle;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -49,7 +51,7 @@ public class FragmentCards extends Fragment {
     private DatabaseReference mFirebaseDbRef;
     private FirebaseDatabase mFirebaseInstance;
     private ProgressDialog pDialog;
-
+    private AwesomeValidation mAwesomeValidation;
 
     @Nullable
     @Override
@@ -65,14 +67,14 @@ public class FragmentCards extends Fragment {
         pDialog.setCancelable(false);
 
         //initialise form validator
-        final AwesomeValidation mAwesomeValidation = new AwesomeValidation(UNDERLABEL);
-        mAwesomeValidation.setContext(getContext());
+        mAwesomeValidation = new AwesomeValidation(ValidationStyle.BASIC);
 
         mSpinner = (Spinner) view.findViewById(R.id.spinner_report);
         owner_name = (EditText) view.findViewById(R.id.owner_name);
         id_number= (EditText) view.findViewById(R.id.id_number);
         found_location = (EditText) view.findViewById(R.id.found_location);
         lost_location = (EditText) view.findViewById(R.id.lost_location);
+
         btnReportFound = (Button) view.findViewById(R.id.btnReportFound);
         btnReportLost = (Button) view.findViewById(R.id.btnReportLost);
         adapter = ArrayAdapter.createFromResource(getContext(),R.array.reports,R.layout.support_simple_spinner_dropdown_item);
@@ -127,22 +129,31 @@ public class FragmentCards extends Fragment {
                 mAwesomeValidation.clear();
                 Log.d(TAG, "onCreateView: start reporting lost item....");
                 mFirebaseDbRef = mFirebaseInstance.getReference("cards").child("lost");
-                //checking if user has entered all necessary data
-                mAwesomeValidation.addValidation(getActivity(), R.id.owner_name, "[a-zA-Z\\s]+", R.string.err_owner_name);
-                mAwesomeValidation.addValidation(getActivity(), R.id.id_number, "[0-9]+", R.string.err_id_number);
-                mAwesomeValidation.addValidation(getActivity(), R.id.lost_location, "[a-zA-Z\\s]+", R.string.err_lost_location);
-
+                //adding validations
+                mAwesomeValidation.addValidation(getActivity(),R.id.owner_name,"^[a-zA-Z\\\\\\s]+( [a-zA-Z\\\\\\s]+){0,1}$",R.string.err_owner_name);
+                mAwesomeValidation.addValidation(getActivity(),R.id.id_number,"^1(1|2)+[0-9]{3}+(7|8){1}+[0-9]{10}$",R.string.err_id_number);
+                mAwesomeValidation.addValidation(getActivity(),R.id.lost_location,"^[a-zA-Z]{1,15}$",R.string.err_lost_location);
                 //activate trigger for validating
-                mAwesomeValidation.validate();
-                //Card Model
-                Card mCard = new Card();
-                mCard.setIdNumber(id_number.getText().toString());
-                mCard.setOwnerName(owner_name.getText().toString());
-                mCard.setLostLocation(lost_location.getText().toString());
-                mCard.setOwnerUid(mAuth.getCurrentUser().getUid());
-                mFirebaseDbRef.push().setValue(mCard);
-                Log.d(TAG, "onClick: lost item reported successful");
-                hideProgressDialog();
+                if(mAwesomeValidation.validate()){
+                    //Card Model
+                    Card mCard = new Card();
+                    mCard.setIdNumber(id_number.getText().toString());
+                    mCard.setOwnerName(owner_name.getText().toString());
+                    mCard.setLostLocation(lost_location.getText().toString());
+                    mCard.setOwnerUid(mAuth.getCurrentUser().getUid());
+                    mFirebaseDbRef.push().setValue(mCard);
+                    Log.d(TAG, "onClick: lost item reported successful");
+                    //cleaning form
+                    owner_name.setText("");
+                    id_number.setText("");
+                    lost_location.setText("");
+                    hideProgressDialog();
+                }
+                else
+                {
+                    Toast.makeText(getActivity(),R.string.validation_failed,Toast.LENGTH_LONG).show();
+                    hideProgressDialog();
+                }
 
             }
         });
@@ -154,22 +165,31 @@ public class FragmentCards extends Fragment {
                 mAwesomeValidation.clear();
                 Log.d(TAG, "onClick: start reporting founded item.....");
                 mFirebaseDbRef = mFirebaseInstance.getReference("cards").child("found");
-                //checking if user has entered all necessary data
-                mAwesomeValidation.addValidation(getActivity(), R.id.owner_name, "[a-zA-Z\\s]+", R.string.err_owner_name);
-                mAwesomeValidation.addValidation(getActivity(), R.id.id_number, "[0-9]+", R.string.err_id_number);
-                mAwesomeValidation.addValidation(getActivity(), R.id.found_location, "[a-zA-Z\\s]+", R.string.err_found_location);
+                //adding validations
+                mAwesomeValidation.addValidation(getActivity(),R.id.owner_name,"^[a-zA-Z\\\\\\s]+( [a-zA-Z\\\\\\s]+){0,1}$",R.string.err_owner_name);
+                mAwesomeValidation.addValidation(getActivity(),R.id.id_number,"^1(1|2)+[0-9]{3}+(7|8){1}+[0-9]{10}$",R.string.err_id_number);
+                mAwesomeValidation.addValidation(getActivity(),R.id.found_location,"^[a-zA-Z]{1,15}$",R.string.err_found_location);
                 //activate trigger for validating
-                mAwesomeValidation.validate();
-                //Card Model
-                Card mCard = new Card();
-                mCard.setOwnerName(owner_name.getText().toString());
-                mCard.setFoundLocation(found_location.getText().toString());
-                mCard.setFounderUid(mAuth.getCurrentUser().getUid());
-                mCard.setIdNumber(id_number.getText().toString());
-                mFirebaseDbRef.push().setValue(mCard);
-                Log.d(TAG, "onClick: founded item reported successful");
-                hideProgressDialog();
+                if(mAwesomeValidation.validate()){
+                    //Card Model
+                    Card mCard = new Card();
+                    mCard.setOwnerName(owner_name.getText().toString());
+                    mCard.setFoundLocation(found_location.getText().toString());
+                    mCard.setFounderUid(mAuth.getCurrentUser().getUid());
+                    mCard.setIdNumber(id_number.getText().toString());
+                    mFirebaseDbRef.push().setValue(mCard);
+                    Log.d(TAG, "onClick: founded item reported successful");
+                    //clean form
+                    owner_name.setText("");
+                    id_number.setText("");
+                    found_location.setText("");
+                    hideProgressDialog();
+                }else
+                {
+                    Toast.makeText(getActivity(), R.string.validation_failed,Toast.LENGTH_LONG).show();
+                    hideProgressDialog();
 
+                }
 //                Log.d(TAG,"Getting fcm Token....");
 //                // Get token
 //                String token = FirebaseInstanceId.getInstance().getToken();
