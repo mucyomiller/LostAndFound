@@ -96,7 +96,6 @@
     <string name="preferences_switch_fr_summ">Toggle to enable French</string>
 
     <string name="preferences_edittext_title">EditText Preference</string>
-    <string name="preferences_edittext_summ">EditText Summary</string>
     <string name="preferences_edittext_default">Default value</string>
     <string name="preferences_edittext_message">Dialog Message</string>
 

@@ -97,6 +97,5 @@
     <string name="preferences_edittext_message">Ubutumwa mbaza</string>
     <string name="preferences_checkbox_title">karito y\'imikoerere</string>
     <string name="preferences_checkbox_summ">karito y\'incamanke</string>
-    <string name="preferences_edittext_summ" translatable="false">hindura incamake</string>
     <string name="app_banner">icyirango cya porogaramu</string>
 </resources>

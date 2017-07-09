@@ -69,7 +69,6 @@
     <string name="preferences_switch_en_summ">" Basculer pour activer l'anglais"</string>
     <string name="preferences_switch_fr_summ">" Basculer pour activer le français"</string>
     <string name="preferences_edittext_title">Préférence EditText</string>
-    <string name="preferences_edittext_summ" translatable="false">Résumé de EditText</string>
     <string name="preferences_edittext_default">Valeur par défaut</string>
     <string name="preferences_edittext_message">Message de dialogue</string>
     <string name="preferences_checkbox_title">Préférence CheckBox</string>
