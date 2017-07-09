@@ -84,4 +84,11 @@
     <string name="report_lost">Menyesha Ibyabuze</string>
     <string name="view_losted">Reba Ibyabuze</string>
     <string name="profile_update_message">Ifoto Ikuranga yahinduwe neza</string>
+    <string-array name="reports">
+        <item>Kubura</item>
+        <item>Gutora</item>
+    </string-array>
+    <string name="report_found_message_success">Icyabonetse cyamenyeshejwe Neza</string>
+    <string name="report_lost_message_success">Icyatowe cyamenyeshejwe neza</string>
+    <string name="validation_failed">Harimo Amakosa subiramo</string>
 </resources>

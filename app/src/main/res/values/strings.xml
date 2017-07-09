@@ -73,14 +73,12 @@
     <!--languages-->
     <string name="chooselang">Choose Language</string>
     <string name="language">Language</string>
-    <string-array
-        name="Languages">
+    <string-array name="Languages">
         <item>Kinyarwanda</item>
         <item>English</item>
         <item>French</item>
     </string-array>
-    <string-array
-        name="LanguagesValues">
+    <string-array name="LanguagesValues">
         <item>rw</item>
         <item>en</item>
         <item>fr</item>
@@ -128,4 +126,7 @@
     <string name="view_losted">View Losted</string>
     <string name="profile_update_message">profile Updated successful</string>
     <string name="validation_failed">validation failed</string>
+    <string name="title_activity_notification">NotificationActivity</string>
+    <string name="report_found_message_success">founded item reported successful</string>
+    <string name="report_lost_message_success">lost item reported successful</string>
 </resources>
