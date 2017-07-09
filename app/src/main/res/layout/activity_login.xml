@@ -39,7 +39,8 @@
             android:layout_gravity="center"
             android:padding="2dp"
             android:layout_height="152dp"
-            android:layout_width="match_parent" />
+            android:layout_width="match_parent"
+            android:contentDescription="@string/app_banner" />
 
         <EditText
             android:id="@+id/username"

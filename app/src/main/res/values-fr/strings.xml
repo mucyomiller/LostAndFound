@@ -94,4 +94,5 @@
     <string name="title_activity_notification">NotificationActivité</string>
     <string name="report_found_message_success">Élément fondé signalé succès</string>
     <string name="report_lost_message_success">Élément perdu signalé avec succès</string>
+    <string name="app_banner">Bannière de l\'application</string>
 </resources>
