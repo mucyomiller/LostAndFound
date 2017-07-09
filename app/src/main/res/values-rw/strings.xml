@@ -2,7 +2,7 @@
 <resources>
     <string name="app_name">LostAndFound</string>
     <string name="hint_username">Injiza Izina</string>
-    <string name="hint_password">Injiza Ijambo ry\'Ibanga</string>
+    <string name="hint_password">Ijambo ry\'Ibanga</string>
     <string name="btn_login">Injira</string>
     <string name="btn_link_to_register">Waba ubaruye? Kanda ubarurwe</string>
     <string name="btn_link_to_login">Wamaze kubarurwa? Kanda winjire</string>
@@ -58,7 +58,7 @@
     <string name="preferences_switch_en_title">Icyongereza</string>
     <string name="preferences_switch_fr_title">Igifaransa</string>
     <string name="preferences_switch_en_summ">kandi uhindure</string>
-    <string name="logging_in_message">birigufunguka</string>
+    <string name="logging_in_message">birigufunguka...</string>
     <string name="preferences_switch_summ">Kanda ushire mu kinyarwanda</string>
     <string name="preferences_switch_fr_summ">Kanda ushire mu gifaransa</string>
     <string name="names_">Amazina:</string>
@@ -91,4 +91,11 @@
     <string name="report_found_message_success">Icyabonetse cyamenyeshejwe Neza</string>
     <string name="report_lost_message_success">Icyatowe cyamenyeshejwe neza</string>
     <string name="validation_failed">Harimo Amakosa subiramo</string>
+    <string name="preferences_edittext_title">hindura imikorere</string>
+    <string name="title_activity_notification">Amamenyesha</string>
+    <string name="preferences_edittext_default">Ingano ntangiriro</string>
+    <string name="preferences_edittext_message">Ubutumwa mbaza</string>
+    <string name="preferences_checkbox_title">karito y\'imikoerere</string>
+    <string name="preferences_checkbox_summ">karito y\'incamanke</string>
+    <string name="preferences_edittext_summ" translatable="false">hindura incamake</string>
 </resources>

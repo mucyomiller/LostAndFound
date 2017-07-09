@@ -48,7 +48,7 @@ public class SettingsFragment extends PreferenceFragmentCompat implements Shared
         Locale.setDefault(locale);
         config.locale = locale;
         getActivity().getResources().updateConfiguration(config, getActivity().getResources().getDisplayMetrics());
-        getActivity().finish();
+        getActivity().finishAffinity();
         Intent mIntent = new Intent(getActivity(), SettingsActivity.class);
         mIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(mIntent);
