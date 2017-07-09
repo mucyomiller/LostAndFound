@@ -19,11 +19,9 @@
         <meta-data
             android:name="com.google.firebase.messaging.default_notification_color"
             android:resource="@color/accent" />
-
         <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -31,9 +29,26 @@
         <activity android:name=".Home.HomeActivity" />
         <activity android:name=".Found.FoundActivity" />
         <activity
-            android:label="@string/profile"
-            android:name=".Profile.ProfileActivity" />
-
+            android:name=".Profile.ProfileActivity"
+            android:label="@string/profile" />
+        <activity
+            android:name=".SettingsActivity"
+            android:label="@string/title_activity_settings"
+            android:parentActivityName=".Profile.ProfileActivity"
+            android:theme="@style/AppTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.regismutangana.lostandfound.Profile.ProfileActivity" />
+        </activity>
+        <activity
+            android:name=".NotificationActivity"
+            android:label="@string/title_activity_notification"
+            android:parentActivityName=".Home.HomeActivity"
+            android:theme="@style/AppTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.regismutangana.lostandfound.Home.HomeActivity" />
+        </activity>
         <service android:name=".Service.MyFirebaseMessagingService">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
@@ -44,16 +59,14 @@
                 <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
             </intent-filter>
         </service>
-
-        <activity
-            android:name=".SettingsActivity"
-            android:label="@string/title_activity_settings"
-            android:parentActivityName=".Profile.ProfileActivity"
-            android:theme="@style/AppTheme">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.regismutangana.lostandfound.Profile.ProfileActivity" />
-        </activity>
+        <receiver
+            android:name=".Receiver.LocaleChangedReceiver"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.LOCALE_CHANGED" />
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>
