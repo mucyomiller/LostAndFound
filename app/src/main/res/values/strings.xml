@@ -74,13 +74,13 @@
     <string name="chooselang">Choose Language</string>
     <string name="language">Language</string>
     <string-array name="Languages">
-        <item>Kinyarwanda</item>
         <item>English</item>
+        <item>Kinyarwanda</item>
         <item>French</item>
     </string-array>
     <string-array name="LanguagesValues">
-        <item>rw</item>
         <item>en</item>
+        <item>rw</item>
         <item>fr</item>
     </string-array>
     <!--end of languages-->
