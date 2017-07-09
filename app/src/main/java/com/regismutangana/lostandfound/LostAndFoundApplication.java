@@ -2,6 +2,8 @@ package com.regismutangana.lostandfound;
 
 import android.app.Application;
 import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.preference.PreferenceManager;
@@ -9,6 +11,8 @@ import android.support.multidex.MultiDex;
 import android.support.multidex.MultiDexApplication;
 import android.util.Log;
 import android.widget.Toast;
+
+import com.regismutangana.lostandfound.Receiver.LocaleChangedReceiver;
 
 import java.util.Locale;
 
@@ -28,6 +32,9 @@ public class LostAndFoundApplication extends MultiDexApplication {
     public void onCreate()
     {
         super.onCreate();
+        LocaleChangedReceiver mLocaleChangedReceiver = new LocaleChangedReceiver();
+        IntentFilter mfilter = new IntentFilter(Intent.ACTION_LOCALE_CHANGED);
+        registerReceiver(mLocaleChangedReceiver, mfilter);
         SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(this);
         Configuration config = getBaseContext().getResources().getConfiguration();
 

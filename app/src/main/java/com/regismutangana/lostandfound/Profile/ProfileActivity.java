@@ -49,11 +49,10 @@ import java.io.IOException;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
-public class ProfileActivity extends AppCompatActivity implements SharedPreferences.OnSharedPreferenceChangeListener{
+public class ProfileActivity extends AppCompatActivity {
     private static final String TAG = "ProfileActivity";
     private static final int ACTIVITY_NUM = 2;
     private static final int RESULT_LOAD_IMG = 3838;
-    private boolean changed=false;
     private Context mContext = ProfileActivity.this;
     private FirebaseAuth mAuth;
     private DatabaseReference mFirebaseDbRef;
@@ -123,10 +122,6 @@ public class ProfileActivity extends AppCompatActivity implements SharedPreferen
     @Override
     protected void onResume() {
         super.onResume();
-        if(changed){
-            changed =false;
-            recreate();
-        }
     }
 
     private void setupToolbar(){
@@ -276,11 +271,4 @@ public class ProfileActivity extends AppCompatActivity implements SharedPreferen
                 });
     }
 
-    @Override
-    public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
-        Log.d(TAG, "onSharedPreferenceChanged: Detected language change on profile activity");
-        if(key.equals("language")){
-            changed = true;
-        }
-    }
 }

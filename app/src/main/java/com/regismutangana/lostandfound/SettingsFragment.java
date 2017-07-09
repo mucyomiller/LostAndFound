@@ -1,5 +1,6 @@
 package com.regismutangana.lostandfound;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Bundle;
@@ -47,5 +48,9 @@ public class SettingsFragment extends PreferenceFragmentCompat implements Shared
         Locale.setDefault(locale);
         config.locale = locale;
         getActivity().getResources().updateConfiguration(config, getActivity().getResources().getDisplayMetrics());
+        getActivity().finish();
+        Intent mIntent = new Intent(getActivity(), SettingsActivity.class);
+        mIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(mIntent);
     }
 }
