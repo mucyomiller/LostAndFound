@@ -31,6 +31,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
 import com.regismutangana.lostandfound.Home.HomeActivity;
+import com.regismutangana.lostandfound.NotificationActivity;
 import com.regismutangana.lostandfound.R;
 
 public class MyFirebaseMessagingService extends FirebaseMessagingService {
@@ -79,8 +80,10 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
      * @param message FCM message body received.
      */
     private void sendNotification(RemoteMessage message) {
-        Intent intent = new Intent(this, HomeActivity.class);
+        Intent intent = new Intent(this, NotificationActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        intent.putExtra("notification_title",message.getNotification().getTitle());
+        intent.putExtra("notification_message",message.getNotification().getBody());
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 0 /* Request code */, intent,
                 PendingIntent.FLAG_ONE_SHOT);
 

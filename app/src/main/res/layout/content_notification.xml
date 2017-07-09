@@ -4,8 +4,40 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.regismutangana.lostandfound.NotificationActivity"
     tools:showIn="@layout/activity_notification">
+    <TextView
+        android:id="@+id/notification_title"
+        android:padding="10dp"
+        android:textSize="24sp"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:textColor="@color/primary_dark"
+        android:textStyle="bold"
+        android:text="LostAndFound"
+        android:layout_marginBottom="20dp"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/notification_message"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_alignParentLeft="true"
+            android:textSize="16sp"
+            android:text="Hello, Mutangana Your Id Card 1199480070855178 has been found\n by Mucyo Miller who lives at remera"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <ImageView
+            android:id="@+id/ic_share"
+            android:src="@drawable/ic_share"
+            android:layout_alignParentRight="true"
+            android:layout_width="50dp"
+            android:layout_height="50dp" />
 
+    </RelativeLayout>
 </LinearLayout>
