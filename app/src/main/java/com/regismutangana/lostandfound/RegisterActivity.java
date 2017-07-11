@@ -59,7 +59,7 @@ public class RegisterActivity extends AppCompatActivity {
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                if(!((String) parent.getItemAtPosition(position)).equals("choose"))
+                if(position != 0)
                 {
                     selected = (String) parent.getItemAtPosition(position);
                     TextView spinnerText = (TextView)spinner.getSelectedView();
