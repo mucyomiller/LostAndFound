@@ -10,6 +10,7 @@
     android:paddingRight="20dp" >
     <Spinner
         android:id="@+id/spinner_report"
+        android:entries="@array/reports"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
@@ -29,6 +30,7 @@
         android:textColorHint="@color/white" />
     <Spinner
         android:id="@+id/spinner_device_type"
+        android:entries="@array/device_type"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="5dp"/>

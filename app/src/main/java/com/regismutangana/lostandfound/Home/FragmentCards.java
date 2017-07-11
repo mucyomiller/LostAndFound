@@ -37,6 +37,7 @@ import static com.basgeekball.awesomevalidation.ValidationStyle.UNDERLABEL;
 public class FragmentCards extends Fragment {
     private static final String TAG = "FragmentCards";
     private Spinner  mSpinner;
+    private Spinner  mCardTypes;
     private EditText owner_name;
     private EditText id_number;
     private EditText found_location;
@@ -70,6 +71,7 @@ public class FragmentCards extends Fragment {
         mAwesomeValidation = new AwesomeValidation(ValidationStyle.BASIC);
 
         mSpinner = (Spinner) view.findViewById(R.id.spinner_report);
+        mCardTypes = (Spinner) view.findViewById(R.id.spinner_cardtypes);
         owner_name = (EditText) view.findViewById(R.id.owner_name);
         id_number= (EditText) view.findViewById(R.id.id_number);
         found_location = (EditText) view.findViewById(R.id.found_location);
@@ -113,6 +115,27 @@ public class FragmentCards extends Fragment {
                     //set Visibility to GONE on lost items
                     lost_location.setVisibility(View.GONE);
                     btnReportLost.setVisibility(View.GONE);
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+        mCardTypes.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                switch (position){
+                    case 0:
+                        id_number.setHint(R.string.hint_id_number);
+                        break;
+                    case 1:
+                        id_number.setHint(R.string.hint_license_number);
+                        break;
+                    case 2:
+                        id_number.setHint(R.string.hint_card_number);
+                        break;
                 }
             }
 

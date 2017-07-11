@@ -15,6 +15,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.basgeekball.awesomevalidation.AwesomeValidation;
 import com.google.firebase.auth.FirebaseAuth;
@@ -78,13 +79,13 @@ public class FragmentGadgets extends Fragment {
         btnReportLost = (Button) view.findViewById(R.id.btnReportLost);
 
         //spinners
-        adapter = ArrayAdapter.createFromResource(getContext(),R.array.reports,R.layout.support_simple_spinner_dropdown_item);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        mSpinner.setAdapter(adapter);
+//        adapter = ArrayAdapter.createFromResource(getContext(),R.array.reports,R.layout.support_simple_spinner_dropdown_item);
+//        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+//        mSpinner.setAdapter(adapter);
         mSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                if(((String) parent.getItemAtPosition(position)).equals("Lost"))
+                if(position == 0)
                 {
                     selected = (String) parent.getItemAtPosition(position);
                     TextView spinnerText = (TextView)mSpinner.getSelectedView();
@@ -98,7 +99,7 @@ public class FragmentGadgets extends Fragment {
                     found_location.setVisibility(View.GONE);
                     btnReportFound.setVisibility(View.GONE);
                 }
-                else if(((String) parent.getItemAtPosition(position)).equals("Found"))
+                else if(position == 1)
                 {
                     //setting color to white on selected item
                     selected = (String) parent.getItemAtPosition(position);
@@ -121,9 +122,9 @@ public class FragmentGadgets extends Fragment {
 
             }
         });
-        mDeviceSpinneradapter = ArrayAdapter.createFromResource(getContext(),R.array.device_type,R.layout.support_simple_spinner_dropdown_item);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner_device_type.setAdapter(mDeviceSpinneradapter);
+//        mDeviceSpinneradapter = ArrayAdapter.createFromResource(getContext(),R.array.device_type,R.layout.support_simple_spinner_dropdown_item);
+//        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+//        spinner_device_type.setAdapter(mDeviceSpinneradapter);
         spinner_device_type.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -189,6 +190,7 @@ public class FragmentGadgets extends Fragment {
                     //report this lost device
                     mFirebaseDbRef.push().setValue(myGadget);
                     Log.d(TAG, "onClick: found device reported successful");
+                    Toast.makeText(getActivity(),"found device reported successful",Toast.LENGTH_LONG).show();
                     hideProgressDialog();
                 }
                 hideProgressDialog();

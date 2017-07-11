@@ -15,6 +15,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.basgeekball.awesomevalidation.AwesomeValidation;
 import com.google.firebase.auth.FirebaseAuth;
@@ -73,13 +74,13 @@ public class FragmentAutomobile extends Fragment {
         btnReportFound = (Button) view.findViewById(R.id.btnReportFound);
         btnReportLost = (Button) view.findViewById(R.id.btnReportLost);
         mSpinner = (Spinner)view.findViewById(R.id.spinner_report);
-        adapter = ArrayAdapter.createFromResource(getContext(),R.array.reports,R.layout.support_simple_spinner_dropdown_item);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        mSpinner.setAdapter(adapter);
-        mSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+//        adapter = ArrayAdapter.createFromResource(getContext(),R.array.reports,R.layout.support_simple_spinner_dropdown_item);
+//        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+//        mSpinner.setAdapter(adapter);
+          mSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                if(((String) parent.getItemAtPosition(position)).equals("Lost"))
+                if(position == 0)
                 {
                     selected = (String) parent.getItemAtPosition(position);
                     TextView spinnerText = (TextView)mSpinner.getSelectedView();
@@ -93,7 +94,7 @@ public class FragmentAutomobile extends Fragment {
                     found_location.setVisibility(View.GONE);
                     btnReportFound.setVisibility(View.GONE);
                 }
-                else if(((String) parent.getItemAtPosition(position)).equals("Found"))
+                else if(position == 1)
                 {
                     //setting color to white on selected item
                     selected = (String) parent.getItemAtPosition(position);
@@ -141,8 +142,10 @@ public class FragmentAutomobile extends Fragment {
                     //report this automobile lost
                     mFirebaseDbRef.push().setValue(mAutomobile);
                     Log.d(TAG, "onClick: lost automobile reported successful");
+                    Toast.makeText(getActivity(), R.string.automobile_lost_success,Toast.LENGTH_LONG).show();
                 }else{
                     Log.d(TAG, "onClick: validation fails..oops!");
+                    Toast.makeText(getActivity(), R.string.automobile_lost_error,Toast.LENGTH_LONG).show();
                 }
                 hideProgressDialog();
             }
@@ -166,11 +169,13 @@ public class FragmentAutomobile extends Fragment {
                     //report this lost device
                     mFirebaseDbRef.push().setValue(mAutomobile);
                     Log.d(TAG, "onClick: found automobile reported successful");
+                    Toast.makeText(getActivity(), R.string.automobile_found_success,Toast.LENGTH_LONG).show();
                     hideProgressDialog();
                 }
                 else
                 {
-                    Log.d(TAG, "onClick: automobile found report fails .. Oops!");       
+                    Log.d(TAG, "onClick: automobile found report fails .. Oops!");
+                    Toast.makeText(getActivity(), R.string.automobile_found_error,Toast.LENGTH_LONG).show();
                 }
                 hideProgressDialog();
             }
