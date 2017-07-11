@@ -2,13 +2,18 @@ package com.regismutangana.lostandfound;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.preference.PreferenceManager;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -24,6 +29,8 @@ import com.google.firebase.database.ValueEventListener;
 import com.regismutangana.lostandfound.Home.HomeActivity;
 import com.regismutangana.lostandfound.Model.User;
 
+import java.util.Locale;
+
 public class LoginActivity extends AppCompatActivity {
 
         private static final String TAG = LoginActivity.class.getSimpleName();
@@ -36,11 +43,25 @@ public class LoginActivity extends AppCompatActivity {
         private DatabaseReference mFirebaseDbRef;
         private FirebaseDatabase mFirebaseInstance;
         private String[] email = {null};
+        private Spinner lang_spinner;
+        private Locale locale;
 
         @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_login);
+            //setting language
+            SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(this);
+            Configuration config = getBaseContext().getResources().getConfiguration();
+            Log.d(TAG, "onCreate: LOCALE"+config.locale.getLanguage());
+            String lang = settings.getString("language", "");
+            if (! "".equals(lang) && !config.locale.getLanguage().equals(lang)) {
+                Locale locale = new Locale(lang);
+                Locale.setDefault(locale);
+                config.locale = locale;
+                getBaseContext().getResources().updateConfiguration(config, getBaseContext().getResources().getDisplayMetrics());
+                recreate();
+            }
 
             //initialize_auth
             mAuth = FirebaseAuth.getInstance();
@@ -49,6 +70,42 @@ public class LoginActivity extends AppCompatActivity {
 
             inputUsername = (EditText) findViewById(R.id.username);
             inputPassword = (EditText) findViewById(R.id.password);
+            lang_spinner = (Spinner) findViewById(R.id.lang_spinner);
+            //handling changing language on spinner.
+            lang_spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                    SharedPreferences mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+                    Configuration config = getBaseContext().getResources().getConfiguration();
+                    String lang = mSharedPreferences.getString("language", "");
+                    switch (position){
+                        case 0:
+                            if(!config.locale.getLanguage().equals(lang))
+                            {
+                                mSharedPreferences.edit().putString("language", "en").commit();
+                                setLangRecreate("en");
+                            }
+                            break;
+                        case 1:
+                            if(!config.locale.getLanguage().equals("rw")){
+                                mSharedPreferences.edit().putString("language", "rw").commit();
+                                setLangRecreate("rw");
+                            }
+                            break;
+                        case 2:
+                            if(!config.locale.getLanguage().equals("fr")){
+                                mSharedPreferences.edit().putString("language", "fr").commit();
+                                setLangRecreate("fr");
+                            }
+                            break;
+                    }
+                }
+
+                @Override
+                public void onNothingSelected(AdapterView<?> parent) {
+
+                }
+            });
             btnLogin = (Button) findViewById(R.id.btnLogin);
             btnLinkToRegister = (Button) findViewById(R.id.btnLinkToRegisterScreen);
 
@@ -68,8 +125,8 @@ public class LoginActivity extends AppCompatActivity {
                         // login user
                         checkLogin(username, password);
                     } else {
-                        Intent mIntent = new Intent(getApplicationContext(),SettingsActivity.class);
-                        startActivity(mIntent);
+//                        Intent mIntent = new Intent(getApplicationContext(),SettingsActivity.class);
+//                        startActivity(mIntent);
 //                         Prompt user to enter credentials
                         Toast.makeText(getApplicationContext(),
                                 R.string.creadential_required, Toast.LENGTH_LONG)
@@ -133,7 +190,6 @@ public class LoginActivity extends AppCompatActivity {
                 @Override
                 public void onCancelled(DatabaseError databaseError) {
                     hideProgressDialog();
-
                 }
             });
         }
@@ -147,4 +203,13 @@ public class LoginActivity extends AppCompatActivity {
         if (pDialog.isShowing())
             pDialog.dismiss();
     };
+
+    public void setLangRecreate(String langval) {
+        Configuration config = getBaseContext().getResources().getConfiguration();
+        locale = new Locale(langval);
+        Locale.setDefault(locale);
+        config.locale = locale;
+        getBaseContext().getResources().updateConfiguration(config, getBaseContext().getResources().getDisplayMetrics());
+        recreate();
+    }
     }

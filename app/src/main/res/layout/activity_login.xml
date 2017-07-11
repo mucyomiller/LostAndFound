@@ -35,13 +35,18 @@
             android:layout_height="wrap_content" />
         <ImageView
             android:src="@drawable/lost_found_banner"
-            android:scaleType="centerInside"
+            android:scaleType="fitCenter"
             android:layout_gravity="center"
             android:padding="2dp"
             android:layout_height="152dp"
             android:layout_width="match_parent"
             android:contentDescription="@string/app_banner" />
-
+        <Spinner
+            android:id="@+id/lang_spinner"
+            android:entries="@array/Languages"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"/>
         <EditText
             android:id="@+id/username"
             android:layout_width="match_parent"
