@@ -1,5 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string-array name="enteries">
+        <item>choisir</item>
+        <item>mâle</item>
+        <item>femelle</item>
+        <item>Autre</item>
+        <item>Autre</item>
+    </string-array>
+    <string-array name="reports">
+        <item>Perdu</item>
+        <item>Trouvé</item>
+    </string-array>
+    <string-array name="device_type">
+        <item>Téléphone</item>
+        <item>Tablette</item>
+        <item>Portable</item>
+        <item>Ordunateur</item>
+        <item>Caméra</item>
+        <item>Autre</item>
+    </string-array>
     <string name="app_name">LostAndFound</string>
     <string name="hint_username">Entrez le nom d\'utilisateur</string>
     <string name="hint_password">Entrer le mot de passe</string>
@@ -94,4 +113,9 @@
     <string name="report_found_message_success">Élément fondé signalé succès</string>
     <string name="report_lost_message_success">Élément perdu signalé avec succès</string>
     <string name="app_banner">Bannière de l\'application</string>
+    <string name="hint_card_number">Entrez le numéro de la carte</string>
+    <string name="hint_license_number">Entrez le numéro de licence</string>
+    <string name="select_picture">Sélectionner l\'image</string>
+    <string name="uploading">" Téléchargement"</string>
+    <string name="uploaded">" Chargé"</string>
 </resources>

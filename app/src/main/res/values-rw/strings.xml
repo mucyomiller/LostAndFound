@@ -1,5 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string-array name="enteries">
+        <item>hitamo</item>
+        <item>gabo</item>
+        <item>gore</item>
+        <item>ibindi</item>
+    </string-array>
+    <string-array name="reports">
+        <item>Kubura</item>
+        <item>Gutora</item>
+    </string-array>
+    <string-array name="device_type">
+        <item>Telephoni</item>
+        <item>Tabuleti</item>
+        <item>mudasobwa njyendanwa</item>
+        <item>mudasobwa yibiro</item>
+        <item>kamera</item>
+        <item>ibindi</item>
+    </string-array>
+    <string-array name="cardstypes">
+        <item>Irangamuntu</item>
+        <item>Uruhushya rwogutwara</item>
+        <item>Ikarita yishuri</item>
+    </string-array>
     <string name="app_name">LostAndFound</string>
     <string name="hint_username">Injiza Izina</string>
     <string name="hint_password">Ijambo ry\'Ibanga</string>
@@ -84,10 +107,6 @@
     <string name="report_lost">Menyesha Ibyabuze</string>
     <string name="view_losted">Reba Ibyabuze</string>
     <string name="profile_update_message">Ifoto Ikuranga yahinduwe neza</string>
-    <string-array name="reports">
-        <item>Kubura</item>
-        <item>Gutora</item>
-    </string-array>
     <string name="report_found_message_success">Icyabonetse cyamenyeshejwe Neza</string>
     <string name="report_lost_message_success">Icyatowe cyamenyeshejwe neza</string>
     <string name="validation_failed">Harimo Amakosa subiramo</string>
@@ -98,4 +117,9 @@
     <string name="preferences_checkbox_title">karito y\'imikoerere</string>
     <string name="preferences_checkbox_summ">karito y\'incamanke</string>
     <string name="app_banner">icyirango cya porogaramu</string>
+    <string name="hint_card_number">Injiza no yikarita</string>
+    <string name="hint_license_number">Injiza no yuruhushya</string>
+    <string name="uploading">Kuzamura</string>
+    <string name="uploaded">Hazamuwe</string>
+    <string name="select_picture">Hitamo Ifoto</string>
 </resources>
