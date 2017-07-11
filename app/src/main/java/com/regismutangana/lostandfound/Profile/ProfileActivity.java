@@ -169,7 +169,7 @@ public class ProfileActivity extends AppCompatActivity {
                 Intent intent = new Intent();
                 intent.setType("image/*");
                 intent.setAction(Intent.ACTION_GET_CONTENT);
-                startActivityForResult(Intent.createChooser(intent, "Select Picture"), RESULT_LOAD_IMG);
+                startActivityForResult(Intent.createChooser(intent, getString(R.string.select_picture)), RESULT_LOAD_IMG);
                 return true;
             default:
                 return super.onContextItemSelected(item);
@@ -221,7 +221,7 @@ public class ProfileActivity extends AppCompatActivity {
 
         //displaying a progress dialog while upload is going on
         final ProgressDialog progressDialog = new ProgressDialog(this);
-        progressDialog.setTitle("Uploading");
+        progressDialog.setTitle(getString(R.string.uploading));
         progressDialog.show();
 
         // [START get_child_ref]
@@ -238,7 +238,7 @@ public class ProfileActivity extends AppCompatActivity {
                         //calculating progress percentage
                         double progress = (100.0 * taskSnapshot.getBytesTransferred()) / taskSnapshot.getTotalByteCount();
                         //displaying percentage in progress dialog
-                        progressDialog.setMessage("Uploaded " + ((int) progress) + "%...");
+                        progressDialog.setMessage(getString(R.string.uploaded) + ((int) progress) + "%...");
                     }
                 })
                 .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
