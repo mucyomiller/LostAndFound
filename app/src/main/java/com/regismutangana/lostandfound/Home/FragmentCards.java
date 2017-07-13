@@ -52,7 +52,6 @@ public class FragmentCards extends Fragment {
     private DatabaseReference mFirebaseDbRef;
     private FirebaseDatabase mFirebaseInstance;
     private ProgressDialog pDialog;
-    private AwesomeValidation mAwesomeValidation;
 
     @Nullable
     @Override
@@ -66,9 +65,6 @@ public class FragmentCards extends Fragment {
         // Progress dialog
         pDialog = new ProgressDialog(this.getActivity());
         pDialog.setCancelable(false);
-
-        //initialise form validator
-        mAwesomeValidation = new AwesomeValidation(ValidationStyle.BASIC);
 
         mSpinner = (Spinner) view.findViewById(R.id.spinner_report);
         mCardTypes = (Spinner) view.findViewById(R.id.spinner_cardtypes);
@@ -151,6 +147,8 @@ public class FragmentCards extends Fragment {
                 showProgressDialog(getString(R.string.report_lost_item));
                 Log.d(TAG, "onCreateView: start reporting lost item....");
                 mFirebaseDbRef = mFirebaseInstance.getReference("cards").child("lost");
+                //initialise form validator
+                AwesomeValidation mAwesomeValidation = new AwesomeValidation(ValidationStyle.BASIC);
                 //adding validations
                 mAwesomeValidation.addValidation(getActivity(),R.id.owner_name,"^[a-zA-Z\\\\\\s]+( [a-zA-Z\\\\\\s]+){0,1}$",R.string.err_owner_name);
                 mAwesomeValidation.addValidation(getActivity(),R.id.id_number,"^1(1|2)+[0-9]{3}+(7|8){1}+[0-9]{10}$",R.string.err_id_number);
@@ -167,7 +165,7 @@ public class FragmentCards extends Fragment {
                     Log.d(TAG, "onClick: lost item reported successful");
                     Toast.makeText(getContext(), R.string.report_lost_message_success,Toast.LENGTH_LONG).show();
                     //cleaning form
-                    clearValidation();
+                    mAwesomeValidation.clear();
                     owner_name.setText("");
                     id_number.setText("");
                     lost_location.setText("");
@@ -188,12 +186,15 @@ public class FragmentCards extends Fragment {
                 showProgressDialog(getString(R.string.report_found_item));
                 Log.d(TAG, "onClick: start reporting founded item.....");
                 mFirebaseDbRef = mFirebaseInstance.getReference("cards").child("found");
+
+                //initialise form validator
+                AwesomeValidation mAwesomeValidation2 = new AwesomeValidation(ValidationStyle.BASIC);
                 //adding validations
-                mAwesomeValidation.addValidation(getActivity(),R.id.owner_name,"^[a-zA-Z\\s]+( [a-zA-Z\\s]+){0,1}$",R.string.err_owner_name);
-                mAwesomeValidation.addValidation(getActivity(),R.id.id_number,"^1(1|2)+[0-9]{3}+(7|8){1}+[0-9]{10}$",R.string.err_id_number);
-                mAwesomeValidation.addValidation(getActivity(),R.id.found_location,"^[a-zA-Z]{1,15}$",R.string.err_found_location);
+                mAwesomeValidation2.addValidation(getActivity(),R.id.owner_name,"^[a-zA-Z\\s]+( [a-zA-Z\\s]+){0,1}$",R.string.err_owner_name);
+                mAwesomeValidation2.addValidation(getActivity(),R.id.id_number,"^1(1|2)+[0-9]{3}+(7|8){1}+[0-9]{10}$",R.string.err_id_number);
+                mAwesomeValidation2.addValidation(getActivity(),R.id.found_location,"^[a-zA-Z]{1,15}$",R.string.err_found_location);
                 //activate trigger for validating
-                if(mAwesomeValidation.validate()){
+                if(mAwesomeValidation2.validate()){
                     //Card Model
                     Card mCard = new Card();
                     mCard.setOwnerName(owner_name.getText().toString());
@@ -204,7 +205,7 @@ public class FragmentCards extends Fragment {
                     Log.d(TAG, "onClick: founded item reported successful");
                     Toast.makeText(getActivity(), R.string.report_found_message_success,Toast.LENGTH_LONG).show();
                     //clean form
-                    clearValidation();
+                    mAwesomeValidation2.clear();
                     owner_name.setText("");
                     id_number.setText("");
                     found_location.setText("");
@@ -228,14 +229,10 @@ public class FragmentCards extends Fragment {
         if (!pDialog.isShowing())
             pDialog.setMessage(message);
         pDialog.show();
-    };
+    }
+
     public void hideProgressDialog(){
         if (pDialog.isShowing())
             pDialog.dismiss();
-    };
-    private void clearValidation() {
-        if (mAwesomeValidation != null) {
-            mAwesomeValidation.clear();
-        }
     }
 }

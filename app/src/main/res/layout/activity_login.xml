@@ -43,7 +43,7 @@
             android:contentDescription="@string/app_banner" />
         <Spinner
             android:id="@+id/lang_spinner"
-            android:entries="@array/Languages"
+            android:entries="@array/login_langs"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="10dp"/>

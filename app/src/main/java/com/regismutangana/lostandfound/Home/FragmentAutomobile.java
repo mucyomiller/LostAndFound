@@ -130,8 +130,8 @@ public class FragmentAutomobile extends Fragment {
                 mFirebaseDbRef = mFirebaseInstance.getReference("automobile").child("lost");
                 //checking if user has entered all necessary data
                //activate trigger for validating
-                boolean valid = mAwesomeValidation.validate();
-                if(valid){
+                //boolean valid = mAwesomeValidation.validate();
+                if(validate()){
                     //model
                     Automobile mAutomobile = new Automobile();
                     mAutomobile.setName(automobile_name.getText().toString());
@@ -157,8 +157,8 @@ public class FragmentAutomobile extends Fragment {
                 showProgressDialog(getString(R.string.report_found_automobile));
                 Log.d(TAG, "onClick: start reporting found item.....");
                 mFirebaseDbRef = mFirebaseInstance.getReference("automobile").child("found");
-                boolean valid = mAwesomeValidation.validate();
-                if(valid){
+                //boolean valid = mAwesomeValidation.validate();
+                if(validate()){
                     //model
                     Automobile mAutomobile = new Automobile();
                     mAutomobile.setName(automobile_name.getText().toString());
@@ -192,4 +192,19 @@ public class FragmentAutomobile extends Fragment {
         if (pDialog.isShowing())
             pDialog.dismiss();
     };
+    public boolean validate() {
+        if (automobile_name.getText().toString().isEmpty()) {
+            automobile_name.setError(getString(R.string.err_automobile_name));
+            return false;
+        }
+        if (automobile_model_name.getText().toString().isEmpty()) {
+            automobile_model_name.setError(getString(R.string.err_automobile_model_name));
+            return false;
+        }
+        if (automobile_plate_number.getText().toString().isEmpty()) {
+            automobile_plate_number.setError(getString(R.string.err_automobile_plate_number));
+            return false;
+        }
+        return true;
+    }
 }

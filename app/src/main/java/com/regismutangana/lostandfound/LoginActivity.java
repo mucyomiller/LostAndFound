@@ -80,24 +80,27 @@ public class LoginActivity extends AppCompatActivity {
                     String lang = mSharedPreferences.getString("language", "");
                     switch (position){
                         case 0:
-                            if(!config.locale.getLanguage().equals(lang))
+                            break;
+                        case 1:
+                            if(!lang.equals("en"))
                             {
                                 mSharedPreferences.edit().putString("language", "en").commit();
                                 setLangRecreate("en");
                             }
                             break;
-                        case 1:
-                            if(!config.locale.getLanguage().equals("rw")){
+                        case 2:
+                            if(!lang.equals("rw")){
                                 mSharedPreferences.edit().putString("language", "rw").commit();
                                 setLangRecreate("rw");
                             }
                             break;
-                        case 2:
-                            if(!config.locale.getLanguage().equals("fr")){
+                        case 3:
+                            if(!lang.equals("fr")){
                                 mSharedPreferences.edit().putString("language", "fr").commit();
                                 setLangRecreate("fr");
                             }
                             break;
+
                     }
                 }
 
@@ -210,6 +213,10 @@ public class LoginActivity extends AppCompatActivity {
         Locale.setDefault(locale);
         config.locale = locale;
         getBaseContext().getResources().updateConfiguration(config, getBaseContext().getResources().getDisplayMetrics());
-        recreate();
+        //recreate();
+        Intent intent = getIntent();
+        finish();
+        startActivity(intent);
+        overridePendingTransition(0, 0);
     }
     }

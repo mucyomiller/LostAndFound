@@ -17,6 +17,19 @@
         <item>Camera</item>
         <item>Other</item>
     </string-array>
+    <string-array name="login_langs">
+        <item>choose</item>
+        <item>English</item>
+        <item>Kinyarwanda</item>
+        <item>French</item>
+    </string-array>
+    <string-array name="login_langsValues">
+        <item> </item>
+        <item>en</item>
+        <item>rw</item>
+        <item>fr</item>
+    </string-array>
+
     <string-array name="Languages">
         <item>English</item>
         <item>Kinyarwanda</item>

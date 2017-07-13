@@ -24,7 +24,7 @@
         <item>Ikarita yishuri</item>
     </string-array>
     <string name="app_name">LostAndFound</string>
-    <string name="hint_username">Injiza Izina</string>
+    <string name="hint_username">Injiza Izina ryogukoresha</string>
     <string name="hint_password">Ijambo ry\'Ibanga</string>
     <string name="btn_login">Injira</string>
     <string name="btn_link_to_register">Waba ubaruye? Kanda ubarurwe</string>
@@ -42,11 +42,11 @@
     <string name="hint_id_number">Injiza irangamuntu</string>
     <string name="hint_found_location">Injiza aho wayitoye</string>
     <string name="hint_lost_location">Injiza aho wayiburiye</string>
-    <string name="btn_report_found">Menyashe Icyanywe</string>
+    <string name="btn_report_found">Menyasha Icyatowe</string>
     <string name="btn_report_lost">Menyesha Icyabuze</string>
     <string name="hint_device_name">Injiza Izina ry\'igikoresho</string>
     <string name="hint_device_model_name">Injiza modeli y\'igikoresho</string>
-    <string name="hint_device_serial_number">Injiza nomera ya seri</string>
+    <string name="hint_device_serial_number">Injiza nomero ya seri</string>
     <string name="hint_automobile_name">Injiza Izina ry\'ikinyabiziga</string>
     <string name="hint_automobile_model_name">Injiza modeli y\'ikinyabiziga</string>
     <string name="hint_automobile_plate_number">Injiza pulaki y\'ikinyabiziga</string>
@@ -108,7 +108,7 @@
     <string name="view_losted">Reba Ibyabuze</string>
     <string name="profile_update_message">Ifoto Ikuranga yahinduwe neza</string>
     <string name="report_found_message_success">Icyabonetse cyamenyeshejwe Neza</string>
-    <string name="report_lost_message_success">Icyatowe cyamenyeshejwe neza</string>
+    <string name="report_lost_message_success">Icyatawe cyamenyeshejwe neza</string>
     <string name="validation_failed">Harimo Amakosa subiramo</string>
     <string name="preferences_edittext_title">hindura imikorere</string>
     <string name="title_activity_notification">Amamenyesha</string>

@@ -65,8 +65,8 @@ public class FragmentGadgets extends Fragment {
         pDialog = new ProgressDialog(getContext());
         pDialog.setCancelable(false);
         //initialise form validator
-        final AwesomeValidation mAwesomeValidation = new AwesomeValidation(UNDERLABEL);
-        mAwesomeValidation.setContext(getContext());
+//        final AwesomeValidation mAwesomeValidation = new AwesomeValidation(UNDERLABEL);
+//        mAwesomeValidation.setContext(getContext());
 
         mSpinner = (Spinner) view.findViewById(R.id.spinner_report);
         device_name = (EditText) view.findViewById(R.id.device_name);
@@ -153,8 +153,7 @@ public class FragmentGadgets extends Fragment {
                 mFirebaseDbRef = mFirebaseInstance.getReference("devices").child("lost");
                 //checking if user has entered all necessary data
                 //activate trigger for validating
-                boolean valid = mAwesomeValidation.validate();
-                if(valid){
+                if(validate()){
                     //model
                     Gadget  myGadget = new Gadget();
                     myGadget.setName(device_name.getText().toString());
@@ -177,8 +176,8 @@ public class FragmentGadgets extends Fragment {
                 showProgressDialog("Reporting Device found...");
                 Log.d(TAG, "onClick: start reporting found item.....");
                 mFirebaseDbRef = mFirebaseInstance.getReference("devices").child("found");
-                boolean valid = mAwesomeValidation.validate();
-                if(valid){
+
+                if(validate()){
                     //model
                     Gadget  myGadget = new Gadget();
                     myGadget.setName(device_name.getText().toString());
@@ -208,4 +207,21 @@ public class FragmentGadgets extends Fragment {
         if (pDialog.isShowing())
             pDialog.dismiss();
     };
+
+
+    public boolean validate() {
+        if (device_name.getText().toString().isEmpty()) {
+            device_name.setError(getString(R.string.err_device_name));
+            return false;
+        }
+        if (device_model_name.getText().toString().isEmpty()) {
+            device_model_name.setError(getString(R.string.err_device_model_name));
+            return false;
+        }
+        if (device_serial_number.getText().toString().isEmpty()) {
+            device_serial_number.setError(getString(R.string.err_device_serial_number));
+            return false;
+        }
+        return true;
+    }
 }
